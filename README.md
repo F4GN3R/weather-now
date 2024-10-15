@@ -94,7 +94,7 @@ $ pnpm run preview
 5. Acesse a aplicação em:
 
 ```bash
-http://localhost:3000
+http://localhost:5173
 ```
 
 <h2 id="ux-ui">UX/UI de Inspiração</h2>
@@ -148,7 +148,7 @@ Este projeto está licenciado sob a licença MIT - veja o arquivo [LICENSE](LICE
 | Testes e Correções         | 2 dias         |
 | Documentação               | 1 dia          |
 | Deploy em produção         | 1 dia          |
-| **Total estimado**         | **11 dias**    |
+| **Total estimado**         | **10 dias**    |
 
 <h2 id="author">Autor</h2>
 
