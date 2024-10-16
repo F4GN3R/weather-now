@@ -88,7 +88,16 @@ export default function PreferencesProvider({
     if (contentStorage) setContent(contentStorage as ContentType);
 
     const generalStorage = localStorage.getItem("general");
-    if (generalStorage) setGeneral(JSON.parse(generalStorage));
+    if (generalStorage) {
+      setGeneral(JSON.parse(generalStorage));
+    } else {
+      setGeneral({
+        ...DEFAULT_GENERAL,
+        theme: window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light",
+      });
+    }
 
     const unitsStorage = localStorage.getItem("units");
     if (unitsStorage) setUnits(JSON.parse(unitsStorage));
