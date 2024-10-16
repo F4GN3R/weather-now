@@ -1,8 +1,8 @@
 import { Github } from "lucide-react";
 import Card from "../components/Card";
 import RadiosGroup from "../components/RadiosGroup";
-
 import { usePreferences } from "../contexts/preferencesContext";
+import logo from "../assets/weather-now.png";
 
 const UNITS_VALUES = {
   temperature: ["celsius", "fahrenHeit"],
@@ -58,6 +58,12 @@ export default function PreferencesContent() {
       <div className="flex w-full lg:w-4/12 flex-col gap-8">
         <Card className="mt-2 lg:mt-12">
           <div className="flex flex-col items-center gap-4">
+            <img
+              src={logo}
+              alt="Weather Now Logo"
+              width={100}
+              className="mb-2"
+            />
             <h1 className="text-3xl font-bold text-slate-800 dark:text-slate-100">
               Weather Now
             </h1>
@@ -72,7 +78,7 @@ export default function PreferencesContent() {
               <Github />
               <span>Github</span>
             </a>
-            <small className="text-slate-400 dark:text-slate-600">
+            <small className="text-slate-400 dark:text-slate-600 text-center">
               {descriptions.preferences.project.created}
             </small>
           </div>

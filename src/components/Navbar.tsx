@@ -1,6 +1,7 @@
 import { CloudSunRain, TextSearch, Map, Settings } from "lucide-react";
 import { ContentType, usePreferences } from "../contexts/preferencesContext";
 import { LanguageDescriptions } from "../utils/language";
+import logo from "../assets/weather-now.png";
 
 type NavItemProps = {
   icon: JSX.Element;
@@ -18,7 +19,13 @@ export default function Navbar() {
   const { descriptions, updateContent } = usePreferences();
 
   return (
-    <nav className="fixed bottom-0 left-0 w-full h-auto flex flex-row justify-evenly py-4 bg-slate-200 dark:bg-slate-800 lg:relative lg:w-28 lg:h-[calc(100vh-5rem)] lg:rounded-3xl  lg:flex-col lg:justify-center lg:items-center lg:gap-9 lg:py-2">
+    <nav className="fixed bottom-0 left-0 w-full h-auto flex flex-row justify-evenly py-4 bg-slate-200 dark:bg-slate-800 lg:relative lg:w-28 lg:h-[calc(100vh-5rem)] lg:rounded-3xl  lg:flex-col lg:justify-start lg:items-center lg:gap-9 lg:py-8">
+      <img
+        src={logo}
+        alt="Weather Now Logo"
+        width={70}
+        className="hidden lg:block lg:mb-16"
+      />
       {Object.keys(descriptions).map((key) => (
         <button
           type="button"
