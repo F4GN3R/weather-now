@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 body {
-  @apply tracking-wide overflow-hidden select-none;
+  @apply p-0 m-0 box-border select-none;
 }

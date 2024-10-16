@@ -1,29 +1,11 @@
-import { Github } from "lucide-react";
-import Card from "../components/Card";
-import RadiosGroup from "../components/RadiosGroup";
-
-import { usePreferences } from "../contexts/preferencesContext";
-
-const UNITS_VALUES = {
-  temperature: ["celsius", "fahrenHeit"],
-  windSpeed: ["km/h", "m/s", "knots"],
-  pressure: ["hpa", "inches", "kpa", "mm"],
-  precipitation: ["milimeters", "inches"],
-  distance: ["kilometers", "miles"],
-};
-
-const GENERAL_VALUES = {
-  theme: ["dark", "light"],
-  language: ["portuguese", "english", "spanish"],
-};
-
-export default function PreferencesContent() {
-  const { descriptions, units, general, updatePreferences } = usePreferences();
+export default function WeatherContent() {
+  // const { descriptions, units, general, updatePreferences } = usePreferences();
 
   return (
-    <div className="flex flex-1 flex-col lg:flex-row gap-7 pb-16 lg:pb-0">
+    <>
       <div className="flex flex-1 flex-col gap-8">
-        <Card title={descriptions.preferences.units.title}>
+        <h1>Em desenvolvimento</h1>
+        {/* <Card title={descriptions.preferences.units.title}>
           {descriptions.preferences.units.options.map((option) => (
             <RadiosGroup
               key={option.title}
@@ -55,8 +37,8 @@ export default function PreferencesContent() {
           ))}
         </Card>
       </div>
-      <div className="flex w-full lg:w-4/12 flex-col gap-8">
-        <Card className="mt-2 lg:mt-12">
+      <div className="flex w-4/12 flex-col gap-8">
+        <Card className="mt-12">
           <div className="flex flex-col items-center gap-4">
             <h1 className="text-3xl font-bold text-slate-800 dark:text-slate-100">
               Weather Now
@@ -76,8 +58,8 @@ export default function PreferencesContent() {
               {descriptions.preferences.project.created}
             </small>
           </div>
-        </Card>
+        </Card>*/}
       </div>
-    </div>
+    </>
   );
 }

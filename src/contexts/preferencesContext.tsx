@@ -1,8 +1,6 @@
 import {
   createContext,
-  Dispatch,
   ReactNode,
-  SetStateAction,
   useContext,
   useEffect,
   useState,
@@ -24,7 +22,7 @@ type GeneralPreferences = {
   language: "portuguese" | "english" | "spanish";
 };
 
-type ContentType = "a" | "b" | "c" | "setting";
+export type ContentType = "weather" | "cities" | "map" | "preferences";
 
 type PreferencesContextProps = {
   general: GeneralPreferences;
@@ -34,7 +32,7 @@ type PreferencesContextProps = {
     preferences: GeneralPreferences | UnitPreferences
   ) => void;
   content: ContentType;
-  setContent: Dispatch<SetStateAction<ContentType>>;
+  updateContent: (content: ContentType) => void;
   descriptions: LanguageDescriptions;
 };
 
@@ -64,8 +62,13 @@ export default function PreferencesProvider({
 }: PreferencesProviderProps) {
   const [general, setGeneral] = useState<GeneralPreferences>(DEFAULT_GENERAL);
   const [units, setUnits] = useState<UnitPreferences>(DEFAULT_UNITS);
-  const [content, setContent] = useState<ContentType>("setting");
+  const [content, setContent] = useState<ContentType>("weather");
   const descriptions = descriptionsBylanguage[general.language];
+
+  const updateContent = (content: ContentType) => {
+    localStorage.setItem("content", content);
+    setContent(content);
+  };
 
   const updatePreferences = (
     type: "general" | "units",
@@ -81,6 +84,9 @@ export default function PreferencesProvider({
   };
 
   useEffect(() => {
+    const contentStorage = localStorage.getItem("content");
+    if (contentStorage) setContent(contentStorage as ContentType);
+
     const generalStorage = localStorage.getItem("general");
     if (generalStorage) setGeneral(JSON.parse(generalStorage));
 
@@ -96,7 +102,7 @@ export default function PreferencesProvider({
         updatePreferences,
         descriptions,
         content,
-        setContent,
+        updateContent,
       }}
     >
       {children}

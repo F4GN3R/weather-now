@@ -35,6 +35,10 @@ export type LanguageDescriptions = {
     menu: string;
     units: UnitsProps;
     general: GeneralProps;
+    project: {
+      description: string;
+      created: string;
+    };
   };
 };
 
@@ -51,49 +55,54 @@ const portuguese: LanguageDescriptions = {
   preferences: {
     menu: "Opções",
     units: {
-      title: "Units",
+      title: "Unidades",
       options: [
         {
           key: "temperature",
-          title: "Temperature",
+          title: "Temperatura",
           labels: ["Celsius", "FahrenHeit"],
         },
         {
           key: "windSpeed",
-          title: "Wind Speed",
+          title: "Velocidade do Vento",
           labels: ["km/h", "m/s", "Knots"],
         },
         {
           key: "pressure",
-          title: "Pressure",
-          labels: ["hPa", "Inches", "kPa", "mm"],
+          title: "Pressão",
+          labels: ["hPa", "Polegadas", "kPa", "mm"],
         },
         {
           key: "precipitation",
-          title: "Precipitation",
-          labels: ["Milimeters", "Inches"],
+          title: "Precipitação",
+          labels: ["Milímetros", "Polegadas"],
         },
         {
           key: "distance",
-          title: "Distance",
-          labels: ["Kilometers", "Miles"],
+          title: "Distância",
+          labels: ["Quilômetros", "Milhas"],
         },
       ],
     },
     general: {
-      title: "General",
+      title: "Geral",
       options: [
         {
           key: "theme",
-          title: "Theme",
-          labels: ["Dark", "Light"],
+          title: "Tema",
+          labels: ["Escuro", "Claro"],
         },
         {
           key: "language",
-          title: "Language",
-          labels: ["Portuguese", "English", "Spanish"],
+          title: "Idioma",
+          labels: ["Português", "Inglês", "Espanhol"],
         },
       ],
+    },
+    project: {
+      description:
+        "Se gostou, não esqueça de deixar sua estrela no repositório.",
+      created: "Desenvolvido em outubro de 2024 por Fagner Morais",
     },
   },
 };
@@ -155,6 +164,11 @@ const english: LanguageDescriptions = {
         },
       ],
     },
+    project: {
+      description:
+        "If you liked it, don't forget to leave your star in the repository.",
+      created: "Developed in october 2024 by Fagner Morais",
+    },
   },
 };
 
@@ -171,32 +185,32 @@ const spanish: LanguageDescriptions = {
   preferences: {
     menu: "Opciones",
     units: {
-      title: "Units",
+      title: "Unidades",
       options: [
         {
           key: "temperature",
-          title: "Temperature",
+          title: "Temperatura",
           labels: ["Celsius", "FahrenHeit"],
         },
         {
           key: "windSpeed",
-          title: "Wind Speed",
+          title: "Velocidad del viento",
           labels: ["km/h", "m/s", "Knots"],
         },
         {
           key: "pressure",
-          title: "Pressure",
+          title: "Presión",
           labels: ["hPa", "Inches", "kPa", "mm"],
         },
         {
           key: "precipitation",
-          title: "Precipitation",
-          labels: ["Milimeters", "Inches"],
+          title: "Precipitación",
+          labels: ["Milímetros", "Pulgadas"],
         },
         {
           key: "distance",
-          title: "Distance",
-          labels: ["Kilometers", "Miles"],
+          title: "Distancia",
+          labels: ["Kilómetros", "Millas"],
         },
       ],
     },
@@ -205,15 +219,20 @@ const spanish: LanguageDescriptions = {
       options: [
         {
           key: "theme",
-          title: "Theme",
-          labels: ["Dark", "Light"],
+          title: "Tema",
+          labels: ["Oscuro", "Ligero"],
         },
         {
           key: "language",
-          title: "Language",
-          labels: ["Portuguese", "English", "Spanish"],
+          title: "Idioma",
+          labels: ["Portugués", "Inglés", "Español"],
         },
       ],
+    },
+    project: {
+      description:
+        "Si te ha gustado no olvides dejar tu estrella en el repositorio.",
+      created: "Desarrollado en octubre de 2024 por Fagner Morais",
     },
   },
 };
