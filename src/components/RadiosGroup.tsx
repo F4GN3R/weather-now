@@ -1,4 +1,5 @@
 import { Radio, RadioGroup } from "@headlessui/react";
+import Title from "./Title";
 
 type RadiosGroupProps = {
   title: string;
@@ -23,9 +24,7 @@ export default function RadiosGroup({
 
   return (
     <div className="flex flex-col gap-3">
-      <h4 className="text-sm lg:text-base font-semibold uppercase text-slate-500/70 dark:text-slate-400">
-        {title}
-      </h4>
+      <Title title={title} />
       <RadioGroup
         value={value}
         onChange={onChange}

@@ -14,7 +14,7 @@ const UNITS_VALUES = {
 
 const GENERAL_VALUES = {
   theme: ["dark", "light"],
-  language: ["portuguese", "english", "spanish"],
+  language: ["pt", "en", "sp"],
 };
 
 export default function PreferencesContent() {
@@ -23,6 +23,9 @@ export default function PreferencesContent() {
   return (
     <div className="flex flex-1 flex-col lg:flex-row gap-7 pb-16 lg:pb-0">
       <div className="flex flex-1 flex-col gap-8">
+        <h1 className="block text-3xl font-semibold dark:text-slate-50">
+          {descriptions.preferences.menu}
+        </h1>
         <Card title={descriptions.preferences.units.title}>
           {descriptions.preferences.units.options.map((option) => (
             <RadiosGroup

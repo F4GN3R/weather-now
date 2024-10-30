@@ -22,8 +22,18 @@ type GeneralProps = {
 };
 
 export type LanguageDescriptions = {
+  navbar: string[];
+  chanceOfRain: string;
+  forecast: {
+    title: string;
+    today: string;
+    week: {
+      [day: string]: string;
+    };
+  };
   weather: {
     menu: string;
+    inputPlaceholder: string;
   };
   cities: {
     menu: string;
@@ -42,9 +52,25 @@ export type LanguageDescriptions = {
   };
 };
 
-const portuguese: LanguageDescriptions = {
+const pt: LanguageDescriptions = {
+  navbar: ["Clima", "Cidades", "Mapa", "Configurações"],
+  chanceOfRain: "Chance de chuva:",
+  forecast: {
+    title: "Previsão de 7 dias",
+    today: "Hoje",
+    week: {
+      sun: "Dom",
+      mon: "Seg",
+      tue: "Ter",
+      wed: "Qua",
+      thu: "Qui",
+      fri: "Sex",
+      sat: "Sab",
+    },
+  },
   weather: {
     menu: "Clima",
+    inputPlaceholder: "Buscar por cidades",
   },
   cities: {
     menu: "Cidades",
@@ -107,9 +133,25 @@ const portuguese: LanguageDescriptions = {
   },
 };
 
-const english: LanguageDescriptions = {
+const en: LanguageDescriptions = {
+  navbar: ["Weather", "Cities", "Map", "Settings"],
+  chanceOfRain: "Chance of rain:",
+  forecast: {
+    title: "7-Day forecast",
+    today: "Today",
+    week: {
+      sun: "Sum",
+      mon: "Mon",
+      tue: "Tue",
+      wed: "Wed",
+      thu: "Thu",
+      fri: "Fri",
+      sat: "Sat",
+    },
+  },
   weather: {
     menu: "Weather",
+    inputPlaceholder: "Search for cities",
   },
   cities: {
     menu: "Cities",
@@ -172,9 +214,25 @@ const english: LanguageDescriptions = {
   },
 };
 
-const spanish: LanguageDescriptions = {
+const sp: LanguageDescriptions = {
+  navbar: ["Clima", "Ciudades", "Mapa", "Ajustes"],
+  chanceOfRain: "Probabilidad de lluvia:",
+  forecast: {
+    title: "Pronóstico de 7 días",
+    today: "Hoy",
+    week: {
+      sun: "Dom",
+      mon: "Lun",
+      tue: "Mar",
+      wed: "Mié",
+      thu: "Jue",
+      fri: "Vie",
+      sat: "Sáb",
+    },
+  },
   weather: {
     menu: "Clima",
+    inputPlaceholder: "Buscar ciudades",
   },
   cities: {
     menu: "Ciudades",
@@ -237,4 +295,4 @@ const spanish: LanguageDescriptions = {
   },
 };
 
-export default { portuguese, english, spanish };
+export default { pt, en, sp };

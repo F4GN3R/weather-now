@@ -5,9 +5,7 @@ import {
   useEffect,
   useState,
 } from "react";
-import descriptionsBylanguage, {
-  LanguageDescriptions,
-} from "../utils/language";
+import descriptions, { LanguageDescriptions } from "../utils/language";
 
 export type UnitPreferences = {
   temperature: "celsius" | "fahrenHeit";
@@ -19,7 +17,7 @@ export type UnitPreferences = {
 
 type GeneralPreferences = {
   theme: "dark" | "light";
-  language: "portuguese" | "english" | "spanish";
+  language: "pt" | "en" | "sp";
 };
 
 export type ContentType = "weather" | "cities" | "map" | "preferences";
@@ -46,7 +44,7 @@ type PreferencesProviderProps = {
 
 const DEFAULT_GENERAL: GeneralPreferences = {
   theme: "dark",
-  language: "portuguese",
+  language: "pt",
 };
 
 const DEFAULT_UNITS: UnitPreferences = {
@@ -63,7 +61,6 @@ export default function PreferencesProvider({
   const [general, setGeneral] = useState<GeneralPreferences>(DEFAULT_GENERAL);
   const [units, setUnits] = useState<UnitPreferences>(DEFAULT_UNITS);
   const [content, setContent] = useState<ContentType>("weather");
-  const descriptions = descriptionsBylanguage[general.language];
 
   const updateContent = (content: ContentType) => {
     localStorage.setItem("content", content);
@@ -83,6 +80,28 @@ export default function PreferencesProvider({
     }
   };
 
+  // const getLocation = () => {
+  //   if (navigator.geolocation) {
+  //     const onSuccess = async (position: GeolocationPosition) => {
+  //       const { latitude, longitude } = position.coords;
+  //       const response = await fetch(
+  //         `http://api.weatherapi.com/v1/current.json?key=47e8ff4b2c034d17b5d193251242210&q=${latitude},${longitude}`
+  //       );
+  //       const data = await response.json();
+  //       console.log(data);
+  //       setCurrentWeather(data);
+  //     };
+
+  //     const onError = () => {
+  //       console.error("Sorry, no position available.");
+  //     };
+
+  //     navigator.geolocation.getCurrentPosition(onSuccess, onError);
+  //   } else {
+  //     console.error("Geolocation is not supported by this browser.");
+  //   }
+  // };
+
   useEffect(() => {
     const contentStorage = localStorage.getItem("content");
     if (contentStorage) setContent(contentStorage as ContentType);
@@ -101,6 +120,8 @@ export default function PreferencesProvider({
 
     const unitsStorage = localStorage.getItem("units");
     if (unitsStorage) setUnits(JSON.parse(unitsStorage));
+
+    // getLocation();
   }, []);
 
   return (
@@ -109,7 +130,7 @@ export default function PreferencesProvider({
         general,
         units,
         updatePreferences,
-        descriptions,
+        descriptions: descriptions[general.language],
         content,
         updateContent,
       }}
