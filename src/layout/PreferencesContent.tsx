@@ -5,9 +5,9 @@ import { usePreferences } from "../contexts/preferencesContext";
 import logo from "../assets/weather-now.png";
 
 const UNITS_VALUES = {
-  temperature: ["celsius", "fahrenHeit"],
-  windSpeed: ["km/h", "m/s", "knots"],
-  pressure: ["hpa", "inches", "kpa", "mm"],
+  temperature: ["c", "f"],
+  windSpeed: ["kph", "mph"],
+  pressure: ["mb", "in"],
   precipitation: ["milimeters", "inches"],
   distance: ["kilometers", "miles"],
 };

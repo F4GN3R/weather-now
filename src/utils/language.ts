@@ -23,7 +23,13 @@ type GeneralProps = {
 
 export type LanguageDescriptions = {
   navbar: string[];
-  chanceOfRain: string;
+  updatedAt: string;
+  airConditions: {
+    title: string;
+    button: string;
+    informations: string[];
+  };
+  todayForecast: string;
   forecast: {
     title: string;
     today: string;
@@ -54,7 +60,23 @@ export type LanguageDescriptions = {
 
 const pt: LanguageDescriptions = {
   navbar: ["Clima", "Cidades", "Mapa", "Configurações"],
-  chanceOfRain: "Chance de chuva:",
+  updatedAt: "Atualizado às",
+  airConditions: {
+    title: "Condições do ar",
+    button: "Ver mais",
+    informations: [
+      "Sensação Real",
+      "Vento",
+      "Chance de chuva",
+      "Índice UV",
+      "Umidade",
+      "Visibilidade",
+      "Pressão",
+      "Pôr do sol",
+      "Direção do vento",
+    ],
+  },
+  todayForecast: "Previsão de hoje",
   forecast: {
     title: "Previsão de 7 dias",
     today: "Hoje",
@@ -91,12 +113,12 @@ const pt: LanguageDescriptions = {
         {
           key: "windSpeed",
           title: "Velocidade do Vento",
-          labels: ["km/h", "m/s", "Knots"],
+          labels: ["km/h", "m/h"],
         },
         {
           key: "pressure",
           title: "Pressão",
-          labels: ["hPa", "Polegadas", "kPa", "mm"],
+          labels: ["Milibares", "Polegadas"],
         },
         {
           key: "precipitation",
@@ -135,7 +157,23 @@ const pt: LanguageDescriptions = {
 
 const en: LanguageDescriptions = {
   navbar: ["Weather", "Cities", "Map", "Settings"],
-  chanceOfRain: "Chance of rain:",
+  updatedAt: "Updated at",
+  airConditions: {
+    title: "Air conditions",
+    button: "See more",
+    informations: [
+      "Real Feel",
+      "Wind",
+      "Chance of rain",
+      "UV Index",
+      "Humidity",
+      "Visibility",
+      "Pressure",
+      "Sunset",
+      "Wind direction",
+    ],
+  },
+  todayForecast: "Today's forecast",
   forecast: {
     title: "7-Day forecast",
     today: "Today",
@@ -172,12 +210,12 @@ const en: LanguageDescriptions = {
         {
           key: "windSpeed",
           title: "Wind Speed",
-          labels: ["km/h", "m/s", "Knots"],
+          labels: ["km/h", "m/h"],
         },
         {
           key: "pressure",
           title: "Pressure",
-          labels: ["hPa", "Inches", "kPa", "mm"],
+          labels: ["Millibars", "Inches"],
         },
         {
           key: "precipitation",
@@ -216,7 +254,23 @@ const en: LanguageDescriptions = {
 
 const sp: LanguageDescriptions = {
   navbar: ["Clima", "Ciudades", "Mapa", "Ajustes"],
-  chanceOfRain: "Probabilidad de lluvia:",
+  updatedAt: "Actualizado en",
+  airConditions: {
+    title: "Condiciones del aire",
+    button: "Ver más",
+    informations: [
+      "Sensación real",
+      "Viento",
+      "Probabilidad de lluvia",
+      "Índice UV",
+      "Humedad",
+      "Visibilidad",
+      "Presión",
+      "Puesta de sol",
+      "Dirección del viento",
+    ],
+  },
+  todayForecast: "El pronóstico de hoy",
   forecast: {
     title: "Pronóstico de 7 días",
     today: "Hoy",
@@ -253,12 +307,12 @@ const sp: LanguageDescriptions = {
         {
           key: "windSpeed",
           title: "Velocidad del viento",
-          labels: ["km/h", "m/s", "Knots"],
+          labels: ["km/h", "m/h"],
         },
         {
           key: "pressure",
           title: "Presión",
-          labels: ["hPa", "Inches", "kPa", "mm"],
+          labels: ["Milibares", "Inches"],
         },
         {
           key: "precipitation",

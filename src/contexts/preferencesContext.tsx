@@ -8,9 +8,9 @@ import {
 import descriptions, { LanguageDescriptions } from "../utils/language";
 
 export type UnitPreferences = {
-  temperature: "celsius" | "fahrenHeit";
-  windSpeed: "km/h" | "m/s" | "knots";
-  pressure: "hpa" | "inches" | "kpa" | "mm";
+  temperature: "c" | "f";
+  windSpeed: "kph" | "mph";
+  pressure: "mb" | "in";
   precipitation: "milimeters" | "inches";
   distance: "kilometers" | "miles";
 };
@@ -48,9 +48,9 @@ const DEFAULT_GENERAL: GeneralPreferences = {
 };
 
 const DEFAULT_UNITS: UnitPreferences = {
-  temperature: "celsius",
-  windSpeed: "km/h",
-  pressure: "mm",
+  temperature: "c",
+  windSpeed: "kph",
+  pressure: "mb",
   precipitation: "milimeters",
   distance: "kilometers",
 };
