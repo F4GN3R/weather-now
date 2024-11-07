@@ -3,12 +3,14 @@ import Card from "../components/Card";
 import RadiosGroup from "../components/RadiosGroup";
 import { usePreferences } from "../contexts/preferencesContext";
 import logo from "../assets/weather-now.png";
+import Divider from "../components/Divider";
+import Switch from "../components/Switch";
 
 const UNITS_VALUES = {
   temperature: ["c", "f"],
   windSpeed: ["kph", "mph"],
   pressure: ["mb", "in"],
-  precipitation: ["milimeters", "inches"],
+  precipitation: ["mm", "in"],
   distance: ["kilometers", "miles"],
 };
 
@@ -58,8 +60,46 @@ export default function PreferencesContent() {
           ))}
         </Card>
       </div>
+
       <div className="flex w-full lg:w-4/12 flex-col gap-8">
         <Card className="mt-2 lg:mt-12">
+          <div className="flex justify-between items-center">
+            <p className="font-semibold dark:text-slate-100">
+              {descriptions.preferences.time}
+            </p>
+            <Switch
+              checked={general.twelveClock === "12"}
+              onChange={(value) =>
+                updatePreferences("general", {
+                  ...general,
+                  twelveClock: value ? "12" : "24",
+                })
+              }
+            />
+          </div>
+          <Divider />
+          <div className="flex flex-col">
+            <div className="flex justify-between items-center">
+              <p className="font-semibold dark:text-slate-100">
+                {descriptions.preferences.location.name}
+              </p>
+              {/* <Switch
+                checked={general.twelveClock === "12"}
+                onChange={(value) =>
+                  updatePreferences("general", {
+                    ...general,
+                    twelveClock: value ? "12" : "24",
+                  })
+                }
+              /> */}
+            </div>
+            <span className="font-light dark:text-slate-400">
+              {descriptions.preferences.location.description}
+            </span>
+          </div>
+        </Card>
+
+        <Card>
           <div className="flex flex-col items-center gap-4">
             <img
               src={logo}

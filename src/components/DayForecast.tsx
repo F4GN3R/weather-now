@@ -1,4 +1,4 @@
-import { format, isPast, parseISO } from "date-fns";
+import { isPast, parseISO } from "date-fns";
 import { HourWeatherProps, useData } from "../contexts/dataContext";
 import {
   UnitPreferences,
@@ -14,16 +14,17 @@ import Skeleton from "./Skeleton";
 type HourForecastProps = {
   units: UnitPreferences;
   hour: HourWeatherProps | null;
+  twelveClock: "12" | "24";
 };
 const HourForecast = (props: HourForecastProps) => {
-  const { units, hour } = props;
+  const { units, hour, twelveClock } = props;
 
   return (
     <div className="flex flex-1 flex-col items-center text-lg gap-4 border-r-2 border-slate-300 dark:border-slate-700 last:border-r-0 px-2">
       {hour ? (
         <>
           <p className="text-sm font-semibold text-slate-500 dark:text-slate-400">
-            {format(parseISO(hour.time), "h:mm aa")}
+            {dataFormatter(`time_${twelveClock}`, hour.time)}
           </p>
           <AnimatedIcon
             isDay={hour.is_day === 1}
@@ -46,7 +47,7 @@ const HourForecast = (props: HourForecastProps) => {
 };
 
 export default function DayForecast() {
-  const { units, descriptions } = usePreferences();
+  const { units, descriptions, general } = usePreferences();
   const { sevenDayForecast } = useData();
   const [nextHours, setNextHours] = useState<{
     sm: HourWeatherProps[] | null[];
@@ -76,13 +77,23 @@ export default function DayForecast() {
 
       <div className="flex md:hidden md:mt-4">
         {nextHours.sm.map((hour, index) => (
-          <HourForecast key={`${index}`} units={units} hour={hour} />
+          <HourForecast
+            key={`${index}`}
+            units={units}
+            hour={hour}
+            twelveClock={general.twelveClock}
+          />
         ))}
       </div>
 
       <div className="hidden md:flex md:mt-4">
         {nextHours.md.map((hour, index) => (
-          <HourForecast key={`${index}`} units={units} hour={hour} />
+          <HourForecast
+            key={`${index}`}
+            units={units}
+            hour={hour}
+            twelveClock={general.twelveClock}
+          />
         ))}
       </div>
     </Card>

@@ -10,7 +10,7 @@ function App() {
   return (
     <DataProvider lang={general.language}>
       <main
-        className={`${general.theme} min-h-screen h-auto lg:h-screen bg-slate-100/50 dark:bg-slate-950`}
+        className={`${general.theme} min-h-screen h-auto bg-slate-100/50 dark:bg-slate-950`}
       >
         <div className="xl:container flex gap-7 mx-auto p-6 lg:p-10">
           <Navbar />

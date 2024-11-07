@@ -11,13 +11,14 @@ export type UnitPreferences = {
   temperature: "c" | "f";
   windSpeed: "kph" | "mph";
   pressure: "mb" | "in";
-  precipitation: "milimeters" | "inches";
+  precipitation: "mm" | "in";
   distance: "kilometers" | "miles";
 };
 
 type GeneralPreferences = {
   theme: "dark" | "light";
   language: "pt" | "en" | "sp";
+  twelveClock: "12" | "24";
 };
 
 export type ContentType = "weather" | "cities" | "map" | "preferences";
@@ -45,13 +46,14 @@ type PreferencesProviderProps = {
 const DEFAULT_GENERAL: GeneralPreferences = {
   theme: "dark",
   language: "pt",
+  twelveClock: "12",
 };
 
 const DEFAULT_UNITS: UnitPreferences = {
   temperature: "c",
   windSpeed: "kph",
   pressure: "mb",
-  precipitation: "milimeters",
+  precipitation: "mm",
   distance: "kilometers",
 };
 
@@ -80,28 +82,6 @@ export default function PreferencesProvider({
     }
   };
 
-  // const getLocation = () => {
-  //   if (navigator.geolocation) {
-  //     const onSuccess = async (position: GeolocationPosition) => {
-  //       const { latitude, longitude } = position.coords;
-  //       const response = await fetch(
-  //         `http://api.weatherapi.com/v1/current.json?key=47e8ff4b2c034d17b5d193251242210&q=${latitude},${longitude}`
-  //       );
-  //       const data = await response.json();
-  //       console.log(data);
-  //       setCurrentWeather(data);
-  //     };
-
-  //     const onError = () => {
-  //       console.error("Sorry, no position available.");
-  //     };
-
-  //     navigator.geolocation.getCurrentPosition(onSuccess, onError);
-  //   } else {
-  //     console.error("Geolocation is not supported by this browser.");
-  //   }
-  // };
-
   useEffect(() => {
     const contentStorage = localStorage.getItem("content");
     if (contentStorage) setContent(contentStorage as ContentType);
@@ -120,8 +100,6 @@ export default function PreferencesProvider({
 
     const unitsStorage = localStorage.getItem("units");
     if (unitsStorage) setUnits(JSON.parse(unitsStorage));
-
-    // getLocation();
   }, []);
 
   return (

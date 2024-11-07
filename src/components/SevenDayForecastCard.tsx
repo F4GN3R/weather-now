@@ -1,4 +1,3 @@
-import { format, parseISO } from "date-fns";
 import { useData } from "../contexts/dataContext";
 import { usePreferences } from "../contexts/preferencesContext";
 import Card from "./Card";
@@ -10,12 +9,6 @@ import Skeleton from "./Skeleton";
 export default function SevenDayForecastCard() {
   const { units, descriptions } = usePreferences();
   const { sevenDayForecast } = useData();
-
-  const handleWeekDay = (date: string) => {
-    return descriptions.forecast.week[
-      format(parseISO(date), "iii").toLocaleLowerCase()
-    ];
-  };
 
   return (
     <Card className="w-full lg:w-5/12 lg:p-8">
@@ -32,7 +25,9 @@ export default function SevenDayForecastCard() {
                 <span className="py-3 text-base w-[4rem] md:w-[5rem] lg:w-[3.5rem] lg:text-lg">
                   {index === 0
                     ? descriptions.forecast.today
-                    : handleWeekDay(forecast.date)}
+                    : descriptions.forecast.week[
+                        dataFormatter("day", forecast.date)
+                      ]}
                 </span>
                 <div className="flex flex-1 items-center gap-2">
                   <AnimatedIcon
@@ -40,7 +35,6 @@ export default function SevenDayForecastCard() {
                     iconNumber={1000}
                     className="w-14 md:w-20"
                   />
-
                   <b className="flex-1 text-sm md:text-base lg:text-lg font-semibold text-slate-700 dark:text-slate-300 pl-4">
                     {forecast.day.condition.text}
                   </b>

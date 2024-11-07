@@ -5,7 +5,7 @@ import Skeleton from "./Skeleton";
 import { dataFormatter } from "../utils/dataFormatter";
 
 export default function CurrentWeather() {
-  const { units, descriptions } = usePreferences();
+  const { units, descriptions, general } = usePreferences();
   const { location, current } = useData();
 
   return (
@@ -21,8 +21,8 @@ export default function CurrentWeather() {
       {current ? (
         <p className="mt-2 text-slate-500 dark:text-slate-500">
           {`${descriptions.updatedAt} ${dataFormatter(
-            "last_updated",
-            current
+            `time_${general.twelveClock}`,
+            current.last_updated
           )}`}
         </p>
       ) : (

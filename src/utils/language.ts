@@ -49,6 +49,8 @@ export type LanguageDescriptions = {
   };
   preferences: {
     menu: string;
+    time: string;
+    location: { name: string; description: string };
     units: UnitsProps;
     general: GeneralProps;
     project: {
@@ -74,6 +76,7 @@ const pt: LanguageDescriptions = {
       "Pressão",
       "Pôr do sol",
       "Direção do vento",
+      "Precipitação",
     ],
   },
   todayForecast: "Previsão de hoje",
@@ -101,7 +104,12 @@ const pt: LanguageDescriptions = {
     menu: "Mapa",
   },
   preferences: {
-    menu: "Opções",
+    menu: "Configurações",
+    time: "Horário de 12 horas",
+    location: {
+      name: "Localização",
+      description: "Obtenha o clima da sua localização",
+    },
     units: {
       title: "Unidades",
       options: [
@@ -113,7 +121,7 @@ const pt: LanguageDescriptions = {
         {
           key: "windSpeed",
           title: "Velocidade do Vento",
-          labels: ["km/h", "m/h"],
+          labels: ["km/h", "mi/h"],
         },
         {
           key: "pressure",
@@ -171,6 +179,7 @@ const en: LanguageDescriptions = {
       "Pressure",
       "Sunset",
       "Wind direction",
+      "Precipitation",
     ],
   },
   todayForecast: "Today's forecast",
@@ -198,7 +207,9 @@ const en: LanguageDescriptions = {
     menu: "Map",
   },
   preferences: {
-    menu: "Options",
+    menu: "Settings",
+    time: "12-Hour Time",
+    location: { name: "Location", description: "Get weather of your location" },
     units: {
       title: "Units",
       options: [
@@ -210,7 +221,7 @@ const en: LanguageDescriptions = {
         {
           key: "windSpeed",
           title: "Wind Speed",
-          labels: ["km/h", "m/h"],
+          labels: ["km/h", "mi/h"],
         },
         {
           key: "pressure",
@@ -268,6 +279,7 @@ const sp: LanguageDescriptions = {
       "Presión",
       "Puesta de sol",
       "Dirección del viento",
+      "Precipitación",
     ],
   },
   todayForecast: "El pronóstico de hoy",
@@ -295,7 +307,12 @@ const sp: LanguageDescriptions = {
     menu: "Mapa",
   },
   preferences: {
-    menu: "Opciones",
+    menu: "Ajustes",
+    time: "Tiempo de 12 horas",
+    location: {
+      name: "Ubicación",
+      description: "Obtenga el clima de su ubicación",
+    },
     units: {
       title: "Unidades",
       options: [
@@ -307,7 +324,7 @@ const sp: LanguageDescriptions = {
         {
           key: "windSpeed",
           title: "Velocidad del viento",
-          labels: ["km/h", "m/h"],
+          labels: ["km/h", "mi/h"],
         },
         {
           key: "pressure",
